@@ -1,0 +1,69 @@
+<!-- <p>pipedemo works!</p>
+<div>
+    Today's Date:- {{presentDate | date:'fullDate' | lowercase}}
+
+</div>
+<div>
+    {{name | titlecase}} 
+</div>
+<div>
+    {{price | currency:'INR'}}
+</div>
+<div>
+    {{price | currency:'USD'}}
+</div>
+<div>
+    My Observable : {{myObservable | async}}
+</div>
+<div>
+    <p>
+        {{jsonData | json}}
+    </p>
+</div>
+
+
+<div>
+    {{digits | digitcount}}
+</div> -->
+
+
+<div class="row justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-md-4" #addPro >
+            <label>Add Serial Number</label><br>
+            <input type="text" class="form-control form-inline" #s placeholder="S.No">
+            <label>Add Product Name</label>
+            <input type="text" class="form-control form-inline" #n placeholder="Product Name">
+            <label>Add Price</label>
+            <input type="text" class="form-control form-inline" #p placeholder="Price">
+            <label>Add Availabilty</label>
+            <input type="text" class="form-control form-inline" #a placeholder=" Check Avaibility">
+            <button (click)="add(s,n,p,a)" [disabled]="!addPro.valid" class=" btn bg-success text-white mt-2 " style="margin-left: 100px; padding-left: 100px; padding-right: 100px;">Add Product</button>
+        </div>
+    </div>
+    <div class="form-group col-md-8 mt-5 text-center">
+        <label for=""><h4>Search by Product</h4></label>
+        <input type="text" class="form-control text-center" id="searchbyproduct" placeholder="Enter product name"
+            [(ngModel)]="namesearch">
+    </div>
+    <div class="col-md-8">
+        <table class="table mt-4">
+            <thead >
+                <tr class="bg-info">
+                    <th scope="col">Sno</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Avaibility</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productArr | filter:namesearch">
+                    <td>{{product.sno}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.avaibility}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
